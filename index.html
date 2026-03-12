@@ -70,6 +70,10 @@
       <p class="section-desc" style="margin-top:6px;">This takes about 5 minutes. Your answers help us measure how your time and workflow improve over the 9-month pilot. Responses are anonymous.</p>
     </div>
     <div class="q-block">
+      <div class="q-text">Your name <span style="font-weight:400;color:#999;font-size:12px;">(optional)</span></div>
+      <input type="text" style="width:100%;padding:8px 12px;font-size:13px;border:1px solid #ddd;border-radius:8px;font-family:inherit;" placeholder="First name or full name…" oninput="ans['name']=this.value">
+    </div>
+    <div class="q-block">
       <div class="q-text">What is your primary role?</div>
       <div class="pill-group" id="role-g">
         <div class="pill" onclick="pickPill('role-g','role',this)">Sourcer</div>
