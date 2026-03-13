@@ -117,7 +117,7 @@
       </div>
       <div class="err-msg">Please select an option.</div>
     </div>
-    <div class="nav"><span></span><span class="nav-meta">Step 1 of 5</span><button class="btn btn-primary" onclick="goTo(1,['role','tenure','segment','req_load'])">Continue →</button></div>
+    <div class="nav"><span></span><span class="nav-meta">Step 1 of 5</span><button class="btn btn-primary" onclick="goTo(1, ans['role']==='Sourcer' ? ['role','tenure','segment'] : ['role','tenure','segment','req_load'])">Continue →</button></div>
   </div>
 
   <!-- PAGE 2: Time allocation -->
@@ -298,6 +298,16 @@ function pickPill(gid, key, el) {
   ans[key] = el.textContent.trim();
   const block = document.getElementById("qb-" + key);
   if (block) block.classList.remove("error");
+  if (key === "role") {
+    const reqBlock = document.getElementById("qb-req_load");
+    if (ans["role"] === "Sourcer") {
+      reqBlock.style.display = "none";
+      ans["req_load"] = "N/A - Sourcer";
+    } else {
+      reqBlock.style.display = "block";
+      if (ans["req_load"] === "N/A - Sourcer") ans["req_load"] = undefined;
+    }
+  }
 }
 
 function pickScale(gid, key, val, el) {
